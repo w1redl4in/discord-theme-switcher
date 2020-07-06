@@ -21,7 +21,7 @@ function App() {
 
   return (
     <ThemeProvider theme={actualTheme ? MainTheme : SecondaryTheme}>
-      <button onClick={handleTheme}>theme changer</button>
+      {/* <button onClick={handleTheme}>theme changer</button> */}
       <Layout />
       <GlobalStyles />
     </ThemeProvider>
