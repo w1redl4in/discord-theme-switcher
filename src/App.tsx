@@ -5,7 +5,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import { theme } from "./styles/theme";
 
 function App() {
-  const [actualTheme, setActualTheme] = useState({});
+  const [actualTheme, setActualTheme] = useState(false);
 
   const MainTheme = {
     main: "white",
@@ -16,11 +16,11 @@ function App() {
   };
 
   const handleTheme = () => {
-    actualTheme ? setActualTheme(MainTheme) : setActualTheme(SecondaryTheme);
+    setActualTheme(!actualTheme);
   };
 
   return (
-    <ThemeProvider theme={actualTheme}>
+    <ThemeProvider theme={actualTheme ? MainTheme : SecondaryTheme}>
       <button onClick={handleTheme}>theme changer</button>
       <Layout />
       <GlobalStyles />
