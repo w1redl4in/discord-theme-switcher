@@ -16,6 +16,10 @@ export const Container = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  background-color: ${(props) => props.theme.main};
+  border: ${(props) =>
+    props.theme.main === "white" ? "1px solid black" : "1px solid white"};
 `;
 
 export const Separator = styled.div`
