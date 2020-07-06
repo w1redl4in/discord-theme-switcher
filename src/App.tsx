@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Layout from "./components/Layout";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "./styles/GlobalStyles";
+import { theme } from "./styles/theme";
 
 function App() {
+  const [actualTheme, setActualTheme] = useState({});
+
+  const MainTheme = {
+    main: "white",
+  };
+
+  const SecondaryTheme = {
+    main: "black",
+  };
+
+  const handleTheme = () => {
+    actualTheme ? setActualTheme(MainTheme) : setActualTheme(SecondaryTheme);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={actualTheme}>
+      <button onClick={handleTheme}>theme changer</button>
+      <Layout />
+      <GlobalStyles />
+    </ThemeProvider>
   );
 }
 
